@@ -14,6 +14,22 @@ function calculateCashback(specialCategoryPurchases, otherCategoryPurchases) {
         totalCashback: totalCashback > limit ? limit : totalCashback,
     };
 }
-
 const cashback = calculateCashback(5000, 10000);
 console.log(cashback);
+//function handleClick(evt) {
+//    debugger;
+//}
+
+//const formEl = document.getElementById('cashback-form');
+//formEl.onclick = handleClick;
+function handleSubmit(evt) {
+    evt.preventDefault();
+
+    const specialAmountInputEl = document.getElementById('special-amount-input');
+    const specialAmount = specialAmountInputEl.value;
+    const otherAmountInputEl = document.getElementById('other-amount-input');
+    const otherAmount = otherAmountInputEl.value;
+}
+
+const formEl = document.getElementById('cashback-form');
+formEl.onsubmit = handleSubmit;
