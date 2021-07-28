@@ -26,17 +26,17 @@ function handleSubmit(evt) {
     totalCashbackEl.textContent = '';
 
     const specialAmount = Number(specialAmountInputEl.value);
-
     if (Number.isNaN(specialAmount)) {
         specialAmountErrorEl.textContent = `Неверное значение. Введите число, например: 10000`;
         return;
     }
+
     const otherAmount = Number(otherAmountInputEl.value);
     if (Number.isNaN(otherAmount)) {
-
         otherAmountErrorEl.textContent = `Неверное значение. Введите число, например: 10000`;
         return;
     }
+
     const result = calculateCashback(specialAmount, otherAmount);
     specialCashbackEl.textContent = `${result.specialCategoryCashback} руб.`;
     otherCashbackEl.textContent = `${result.otherCategoryCashback} руб.`;
@@ -44,9 +44,7 @@ function handleSubmit(evt) {
 }
 
 const formEl = document.getElementById('cashback-form');
-formEl.addEventListener('submit', handleSubmit);
-formEl.addEventListener('submit', handleSubmit, true);
-formEl.addEventListener('submit', handleSubmit, {capture: true});
+formEl.onsubmit = handleSubmit;
 
 const specialAmountInputEl = document.getElementById('special-amount-input');
 const otherAmountInputEl = document.getElementById('other-amount-input');
